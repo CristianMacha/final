@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    height: 70px;
+    top: 0;
+    padding: 10px 5%;
+    background: #7e57c2;
+    z-index: 10;
+}
+
+header img {
+    float: left;
+    margin: 0px;
+}
+
+header nav {
+    float: right;
+    background: #7e57c2;
+}
+header nav .menu ul {
+    /*posicion absolute para que se posicione debajo del resto del header - top medida del header*/
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    overflow: hidden;
+    list-style: none;
+    background: #7e57c2;
+    height: 0px;
+    z-index: 10;
+}
+header nav .menu  ul li {
+    position: relative;
+} 
+header nav .menu  ul li:hover {
+    background: #9575cd;
+} 
+header nav .menu ul li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 16px 5%;
+    line-height: 28px;
+    display: block;
+}
+header nav .menu  ul li a:hover {
+    color: #fff;
+} 
+
+header nav .menu input[type="checkbox"]:checked ~ ul {
+    height: 240px;
+}
+header nav .menu {
+    padding-top: 3px;
+}
+/*checkbox transparente y en primer plano*/
+header nav .menu input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    opacity: 0;
+    z-index: 2;
+    position: absolute;
+}
+/*span -lineas del menu hamburguesa-*/
+header nav .menu span {
+    display: block;
+    width: 25px;
+    height: 2.5px;
+    margin-bottom: 6.5px;
+    position: relative;
+    background: #000;
+    z-index: 1;
+    transform-origin: 3px 0px;
+}
+header nav .menu span:first-child {
+    transform-origin: 0% 0%;
+}
+header nav .menu span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+/*movimiento a cruz*/
+header nav .menu input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(2px, 1px);
+}
+header nav .menu input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+header nav .menu input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(1px, 0px);
+}
+/*menu simple con tamaño menor a 1000px*/
+@media screen and (min-width: 1000px){
+    header nav .menu ul {
+        position: relative;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        background: unset;
+        height: unset;
+    }
+    header nav .menu  ul li {
+        padding: 5px 10px;
+        display: inline-block;
+    } 
+    header nav .menu  ul li:hover {
+        background: unset;
+        border-bottom: 2px solid black;
+    } 
+    header nav .menu ul li a {
+        padding: unset;
+        line-height: unset;
+    }
+    header nav .menu  ul li a:hover {
+        color: unset;
+    } 
+    header nav .menu input {
+        display: none;
+    }
+    header nav .menu span {
+        display: none;
+    }
+}
+
+main {
+    width: 100%;
+    margin-top: 70px;
+    background: #5c6bc0;
+}
+
+.banner {
+    height: 70vh;
+    padding-top: 10rem;
+    padding-left: 10rem;
+    background: white;
+    clip-path: polygon(0 0, 100% 0, 100% 68%, 0% 100%);
+}
+
+
+@media screen and (max-width: 1000px) {
+    .banner {
+        padding: 5rem;
+        clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    }
+}
+
+
+.episodios {
+    padding: .5rem;
+    background: #5c6bc0;
+}
+
+.episodios h2 {
+    color: white;
+}
+
+.content {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+img {
+    margin: .5rem;
+    min-width: 10px;
+    max-width: 20rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.img-content {
+    min-width: 2px
+}
